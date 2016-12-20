@@ -31,4 +31,4 @@ COPY . /data/rscripts
 
 WORKDIR /data/rscripts
 
-CMD ["Rscript" , "dockerExomeDepth.r"]
+ENTRYPOINT["Rscript", "dockerExomeDepth.r"]
