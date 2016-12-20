@@ -20,11 +20,15 @@ RUN Rscript -e "source('https://bioconductor.org/biocLite.R');biocLite('Biostrin
 	Rscript -e "source('https://bioconductor.org/biocLite.R');biocLite('IRanges')" && \
 	Rscript -e "source('https://bioconductor.org/biocLite.R');biocLite('Rsamtools')" && \
 	Rscript -e "source('https://bioconductor.org/biocLite.R');biocLite('GenomicRanges')" && \
-	Rscript -e "source('https://bioconductor.org/biocLite.R');biocLite('GenomicAlignments')"
+	Rscript -e "source('https://bioconductor.org/biocLite.R');biocLite('GenomicAlignments')" && \
+	Rscript -e "install.packages('optparse')" && \
+	Rscript -e "install.packages('ExomeDepth')"
 
-# Install ExomeDepth
-RUN Rscript -e "install.packages('ExomeDepth')"
+RUN mkdir /data && \
+	mkdir /data/rscripts
 
-#WORKDIR /data/
+COPY . /data/rscripts
 
-#CMD ["picard"]
+WORKDIR /data/rscripts
+
+CMD ["Rscript" , "dockerExomeDepth.r"]
