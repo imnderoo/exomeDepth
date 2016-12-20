@@ -29,6 +29,6 @@ RUN mkdir /data && \
 
 COPY . /data/rscripts/
 
-WORKDIR /data/rscripts/
+#WORKDIR /data/rscripts/
 
-ENTRYPOINT["Rscript", "dockerExomeDepth.r"]
+ENTRYPOINT["Rscript", "/data/rscripts/dockerExomeDepth.r"]
