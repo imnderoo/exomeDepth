@@ -25,10 +25,10 @@ RUN Rscript -e "source('https://bioconductor.org/biocLite.R');biocLite('Biostrin
 	Rscript -e "install.packages('ExomeDepth')"
 
 RUN mkdir /data && \
-	mkdir /data/rscripts
+	mkdir /data/rscripts/
 
-COPY . /data/rscripts
+COPY . /data/rscripts/
 
-WORKDIR /data/rscripts
+WORKDIR /data/rscripts/
 
 ENTRYPOINT["Rscript", "dockerExomeDepth.r"]
