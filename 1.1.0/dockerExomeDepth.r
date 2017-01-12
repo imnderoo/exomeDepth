@@ -130,9 +130,49 @@ for (i in 1:dim(countmat)[2]) {
 	all_exons = AnnotateExtra(x = all_exons, reference.annotation = panels.hg19.GRanges, min.overlap = 0.02, column.name = 'panels.hg19')
    }
 
-    png(filename = paste(sample_name,"_BRCA1.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    png(filename = paste(sample_name,"_MUTYH.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
     # Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
-    plot(all_exons, sequence = '17', xlim =c(41197695-10000,41276084+10000), count.threshold = 20, main = 'BRCA1 gene', cex.lab = 0.8, with.gene = TRUE)   
+    plot(all_exons, sequence = '1', xlim =c(45794900-10000,45806000+10000),count.threshold = 20, main = 'MUTYH gene', cex.lab = 0.8, with.gene = TRUE)   
+    dev.off()   
+    
+    png(filename = paste(sample_name,"_EPCAM.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    # Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '2', xlim =c(47596000-10000,47614000+10000),count.threshold = 20, main = 'EPCAM gene', cex.lab = 0.8, with.gene = TRUE)   
+    dev.off()   
+
+    png(filename = paste(sample_name,"_MSH2.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    # Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '2', xlim =c(47630000-10000,47710100+10000),count.threshold = 20, main = 'MSH2 gene', cex.lab = 0.8, with.gene = TRUE)   
+    dev.off()   
+
+    png(filename = paste(sample_name,"_MSH6.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    # Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '2', xlim =c(48010357-10000,48034015+10000),count.threshold = 20, main = 'MSH6 gene', cex.lab = 0.8, with.gene = TRUE)   
+    dev.off()   
+    
+    png(filename = paste(sample_name,"_MLH1.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    # Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '3', xlim =c(37035000-10000,37092200+10000),count.threshold = 20, main = 'MLH1 gene', cex.lab = 0.8, with.gene = TRUE)   
+    dev.off()   
+
+    png(filename = paste(sample_name,"_APC.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '5', xlim =c(112033556-10000,112173250+10000), count.threshold = 20, main = 'APC gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
+    png(filename = paste(sample_name,"_PMS2.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '7', xlim =c(6013000-10000,6048700+10000), count.threshold = 20, main = 'PMS2 gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
+    png(filename = paste(sample_name,"_PTEN.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '10', xlim =c(89624000-10000,89725200+10000), count.threshold = 20, main = 'PTEN gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
+    png(filename = paste(sample_name,"_ATM.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '11', xlim =c(108098300-10000,108236300+10000), count.threshold = 20, main = 'ATM gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     png(filename = paste(sample_name,"_BRCA2.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
@@ -140,14 +180,29 @@ for (i in 1:dim(countmat)[2]) {
     plot(all_exons, sequence = '13', xlim =c(32890598-10000,32972299+10000), count.threshold = 20, main = 'BRCA2 gene', cex.lab = 0.8, with.gene = TRUE)   
     dev.off()   
 
-    png(filename = paste(sample_name,"_MSH6.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
-    # Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
-    plot(all_exons, sequence = '2', xlim =c(48010357-10000,48034015+10000),count.threshold = 20, main = 'MSH6 gene', cex.lab = 0.8, with.gene = TRUE)   
+    png(filename = paste(sample_name,"_PALB2.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '16', xlim =c(23614700-10000,23652500+10000), count.threshold = 20, main = 'PALB2 gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
-    png(filename = paste(sample_name,"_APC.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    png(filename = paste(sample_name,"_TP53.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
     #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
-    plot(all_exons, sequence = '5', xlim =c(112033556-10000,112173250+10000), count.threshold = 20, main = 'APC gene', cex.lab = 0.8, with.gene = TRUE)
+    plot(all_exons, sequence = '17', xlim =c(7572900-10000,7580000+10000), count.threshold = 20, main = 'TP53 gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
+    png(filename = paste(sample_name,"_BRCA1.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    # Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '17', xlim =c(41197695-10000,41276084+10000), count.threshold = 20, main = 'BRCA1 gene', cex.lab = 0.8, with.gene = TRUE)   
+    dev.off()   
+    
+    png(filename = paste(sample_name,"_STK11.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '19', xlim =c(1206900-10000,1226600+10000), count.threshold = 20, main = 'STK11 gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
+    png(filename = paste(sample_name,"_CHEK2.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '22', xlim =c(29083800-10000,29130800+10000), count.threshold = 20, main = 'CHEK2 gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     write.table(all_exons@CNV.calls, file=paste(sample_name,".csv",sep=''), 
