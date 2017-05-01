@@ -2,7 +2,7 @@
 FROM r-base:latest
 
 # Metadata
-LABEL base.image="r-base:latest"
+LABEL base.image="r-base:3.3.2"
 LABEL version="1.1.0"
 LABEL software="ExomeDepth"
 LABEL software.version="1.1.0"
