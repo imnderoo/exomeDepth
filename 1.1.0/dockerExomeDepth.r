@@ -217,7 +217,7 @@ for (i in 1:dim(countmat)[2]) {
 
     png(filename = paste(sample_name,"_CHEK2.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
     #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
-    plot(all_exons, sequence = '22', xlim =c(29083000-10000,291231000+10000), count.threshold = 20, main = 'CHEK2 gene', cex.lab = 0.8, with.gene = TRUE)
+    plot(all_exons, sequence = '22', xlim =c(29083000-10000,29123100+10000), count.threshold = 20, main = 'CHEK2 gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     png(filename = paste(sample_name,"_FANCC.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
