@@ -202,37 +202,42 @@ for (i in 1:dim(countmat)[2]) {
 
     png(filename = paste(sample_name,"_BARD1.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
     #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
-    plot(all_exons, sequence = '2', xlim =c(215593400-10000,215675000+10000), count.threshold = 20, main = 'CHEK2 gene', cex.lab = 0.8, with.gene = TRUE)
+    plot(all_exons, sequence = '2', xlim =c(215593400-10000,215675000+10000), count.threshold = 20, main = 'BARD1 gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     png(filename = paste(sample_name,"_BRIP1.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
     #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
-    plot(all_exons, sequence = '17', xlim =c(59760000-10000,59940000+10000), count.threshold = 20, main = 'CHEK2 gene', cex.lab = 0.8, with.gene = TRUE)
+    plot(all_exons, sequence = '17', xlim =c(59760000-10000,59940000+10000), count.threshold = 20, main = 'BRIP1 gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     png(filename = paste(sample_name,"_CDH1.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
     #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
-    plot(all_exons, sequence = '16', xlim =c(68770000-10000,6887000+10000), count.threshold = 20, main = 'CHEK2 gene', cex.lab = 0.8, with.gene = TRUE)
+    plot(all_exons, sequence = '16', xlim =c(68770000-10000,68870000+10000), count.threshold = 20, main = 'CDH1 gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
+    png(filename = paste(sample_name,"_CHEK2.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '22', xlim =c(29083000-10000,291231000+10000), count.threshold = 20, main = 'CHEK2 gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     png(filename = paste(sample_name,"_FANCC.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
     #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
-    plot(all_exons, sequence = '9', xlim =c(97863000-10000,98011000+10000), count.threshold = 20, main = 'CHEK2 gene', cex.lab = 0.8, with.gene = TRUE)
+    plot(all_exons, sequence = '9', xlim =c(97863000-10000,98011000+10000), count.threshold = 20, main = 'FANCC gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     png(filename = paste(sample_name,"_NBN.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
     #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
-    plot(all_exons, sequence = '8', xlim =c(90948000-10000,90996800+10000), count.threshold = 20, main = 'CHEK2 gene', cex.lab = 0.8, with.gene = TRUE)
+    plot(all_exons, sequence = '8', xlim =c(90948000-10000,90996800+10000), count.threshold = 20, main = 'NBN gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     png(filename = paste(sample_name,"_RAD51C.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
     #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
-    plot(all_exons, sequence = '17', xlim =c(56770000-10000,56811500+10000), count.threshold = 20, main = 'CHEK2 gene', cex.lab = 0.8, with.gene = TRUE)
+    plot(all_exons, sequence = '17', xlim =c(56770000-10000,56811500+10000), count.threshold = 20, main = 'RAD51C gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     png(filename = paste(sample_name,"_RAD51D.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
     #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
-    plot(all_exons, sequence = '17', xlim =c(33428000-10000,33448000+10000), count.threshold = 20, main = 'CHEK2 gene', cex.lab = 0.8, with.gene = TRUE)
+    plot(all_exons, sequence = '17', xlim =c(33428000-10000,33448000+10000), count.threshold = 20, main = 'RAD51D gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     write.table(all_exons@CNV.calls, file=paste(sample_name,".csv",sep=''), 
