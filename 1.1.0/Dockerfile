@@ -15,6 +15,9 @@ LABEL tags="Genomics"
 # Maintainer
 MAINTAINER Andrew Wong <nderoo.wong@gmail.com>
 
+RUN apt-get -y update && \
+	apt-get --yes --force-yes install libcurl4-openssl-dev 
+	
 # R dependencies
 RUN Rscript -e "source('https://bioconductor.org/biocLite.R');biocLite('Biostrings')" && \
 	Rscript -e "source('https://bioconductor.org/biocLite.R');biocLite('IRanges')" && \
