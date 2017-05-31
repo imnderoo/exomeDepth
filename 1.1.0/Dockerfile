@@ -12,8 +12,6 @@ LABEL documentation="https://CRAN.R-project.org/package=ExomeDepth"
 LABEL license="https://CRAN.R-project.org/package=ExomeDepth"
 LABEL tags="Genomics"
 
-# NBN, BARD1, FANCC currently disabled
-
 # Maintainer
 MAINTAINER Andrew Wong <nderoo.wong@gmail.com>
 
