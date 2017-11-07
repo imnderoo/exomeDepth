@@ -235,6 +235,36 @@ for (i in 1:dim(countmat)[2]) {
     plot(all_exons, sequence = '17', xlim =c(56770000-10000,56811500+10000), count.threshold = 20, main = 'RAD51C gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
+    png(filename = paste(sample_name,"_PTEN.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '10', xlim =c(89624200-10000,89725200+10000), count.threshold = 20, main = 'PTEN gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
+    png(filename = paste(sample_name,"_BMPR1A.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '10', xlim =c(88635600-10000,88683500+10000), count.threshold = 20, main = 'BMPR1A gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
+    png(filename = paste(sample_name,"_POLD1.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '19', xlim =c(50902000-10000,50921200+10000), count.threshold = 20, main = 'POLD1 gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
+    png(filename = paste(sample_name,"_POLE.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '12', xlim =c(133201100-10000,133264000+10000), count.threshold = 20, main = 'POLE gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
+    png(filename = paste(sample_name,"_SMAD4.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '18', xlim =c(48573300-10000,48604900+10000), count.threshold = 20, main = 'SMAD4 gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
+    png(filename = paste(sample_name,"_GREM1.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
+    plot(all_exons, sequence = '15', xlim =c(33010100-10000,33026800+10000), count.threshold = 20, main = 'GREM1 gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
     png(filename = paste(sample_name,"_RAD51D.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
     #Specifying MSH6 gene. Make sure it's hg19 coordinate. Sequence is chromosome #. xlim is coordinate range
     plot(all_exons, sequence = '17', xlim =c(33428000-10000,33448000+10000), count.threshold = 20, main = 'RAD51D gene', cex.lab = 0.8, with.gene = TRUE)
