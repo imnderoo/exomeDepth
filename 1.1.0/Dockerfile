@@ -1,5 +1,5 @@
 # Base Image
-FROM r-base:latest
+FROM r-base:3.3.2
 
 # Metadata
 LABEL base.image="r-base:3.3.2"
