@@ -1,5 +1,5 @@
 # Base Image
-FROM r-base:3.3.2
+FROM r-base:latest
 
 # Metadata
 LABEL base.image="r-base:3.3.2"
@@ -17,17 +17,17 @@ LABEL tags="Genomics"
 # Maintainer
 MAINTAINER Andrew Wong <nderoo.wong@gmail.com>
 
-RUN apt-get -y update && \
-	apt-get --yes --force-yes install libcurl4-openssl-dev 
+RUN apt-get -y update 
+RUN apt-get --yes --force-yes install libcurl4-openssl-dev 
 	
 # R dependencies
-RUN Rscript -e "source('https://bioconductor.org/biocLite.R');biocLite('Biostrings')" && \
-	Rscript -e "source('https://bioconductor.org/biocLite.R');biocLite('IRanges')" && \
-	Rscript -e "source('https://bioconductor.org/biocLite.R');biocLite('Rsamtools')" && \
-	Rscript -e "source('https://bioconductor.org/biocLite.R');biocLite('GenomicRanges')" && \
-	Rscript -e "source('https://bioconductor.org/biocLite.R');biocLite('GenomicAlignments')" && \
-	Rscript -e "install.packages('optparse')" && \
-	Rscript -e "install.packages('ExomeDepth')"
+
+RUN Rscript -e "install.packages('BiocManager')"
+RUN Rscript -e "BiocManager:: install()"
+RUN Rscript -e "BiocManager:: install(c('Biostrings','Iranges','Rsamtools','GenomicRanges','GenomicAlignments'))"
+
+RUN Rscript -e "install.packages('optparse')"
+RUN Rscript -e "install.packages('ExomeDepth')"
 
 RUN mkdir /data && \
 	mkdir /data/rscripts/
