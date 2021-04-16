@@ -11,6 +11,7 @@ require(optparse) # http://cran.r-project.org/web/packages/optparse/optparse.pdf
 require(ExomeDepth)
 require(GenomicRanges)
 
+packageVersion("ExomeDepth")
 
 options(stringsAsFactors=FALSE) # crucial for handling BAM filenames as strings
 
@@ -71,7 +72,6 @@ if (opt$verbose) {
     cat(paste("Read BAM list from ",opt$bamlist,"\n",sep=''),file=stdout())
 }
 
-#counts = getBamCounts(bed.frame = exons.hg19, bam.files = bams, include.chr = TRUE)
 counts = getBamCounts(bed.frame = panels.hg19, bam.files = bams, include.chr = TRUE)
 
 if (opt$verbose) {
@@ -97,10 +97,9 @@ if (opt$verbose) {
 # and for some reason you can't cast S4 directly to matrix, only via df
 countdf = as.data.frame(counts)
 
-countmat = as.matrix(countdf[,6:dim(countdf)[2]]) # remove cols 1-5 metadata
+countmat <- as.matrix(countdf[,6:dim(countdf)[2]]) # remove cols 1-5 metadata
 
-countdf$chromosome = gsub(as.character(countdf$space), pattern = 'chr', replacement = '') #removes the chr letters
-
+countdf$chromosome <- gsub(pattern = 'chr', replacement = '', as.character(countdf$chromosome)) #removes the chr letters
 
 # beta version: assume you want CNVs on all samples
 for (i in 1:dim(countmat)[2]) {
@@ -116,11 +115,20 @@ for (i in 1:dim(countmat)[2]) {
         reference=reference_set,
         formula = 'cbind(test,reference) ~ 1')
 
-    #write.table(all_exons@, file=paste(sample_name,"_raw.csv",sep=''), sep=',', row.names=FALSE, col.names=TRUE, quote=FALSE)
-	# default expected.CNV.length is 50000 
-    all_exons = CallCNVs(x = all_exons, transition.probability = opt$sensitivity,
+	#print (countdf)
+	#print(length(countdf$chromosome))
+	#print(length(countdf$start))
+	#print(length(countdf$end))
+
+    # default expected.CNV.length is 50000 
+    #all_exons <- CallCNVs(x = all_exons, transition.probability = opt$sensitivity,
+    #    chromosome = countdf$chromosome, start=countdf$start,
+    #    end=countdf$end, name=countdf$names, expected.CNV.length = opt$cnv_length)
+
+    all_exons <- CallCNVs(x = all_exons, transition.probability = 0.03,
         chromosome = countdf$chromosome, start=countdf$start,
-        end=countdf$end, name=countdf$names, expected.CNV.length = opt$cnv_length)
+        end=countdf$end, name=countdf$exon, expected.CNV.length = opt$cnv_length)
+
     #all_exons = gsub("chr", "", all_exons@CNV.calls$chromosome)
 
    #print(nrow(all_exons@CNV.calls))
@@ -152,7 +160,7 @@ for (i in 1:dim(countmat)[2]) {
     dev.off()   
 
     png(filename = paste(sample_name,"_APC.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
-    plot(all_exons, sequence = '5', xlim =c(112000000-10000,112182000+10000), count.threshold = 20, main = 'APC gene', cex.lab = 0.8, with.gene = TRUE)
+    plot(all_exons, sequence = '5', xlim =c(112000000-10000,112082000+10000), count.threshold = 20, main = 'APC gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     png(filename = paste(sample_name,"_PMS2.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
@@ -236,7 +244,7 @@ for (i in 1:dim(countmat)[2]) {
     dev.off()   
 
     png(filename = paste(sample_name,"_GREM1.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
-    plot(all_exons, sequence = '15', xlim =c(33010100-10000,33026800+10000), count.threshold = 20, main = 'GREM1 gene', cex.lab = 0.8, with.gene = TRUE)
+    plot(all_exons, sequence = '15', xlim =c(32930000-10000,33026800+10000), count.threshold = 20, main = 'GREM1 gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     png(filename = paste(sample_name,"_RAD51D.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
