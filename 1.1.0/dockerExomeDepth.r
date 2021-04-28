@@ -97,35 +97,32 @@ if (opt$verbose) {
 # and for some reason you can't cast S4 directly to matrix, only via df
 countdf = as.data.frame(counts)
 
-countmat <- as.matrix(countdf[,6:dim(countdf)[2]]) # remove cols 1-5 metadata
+countmat <- as.matrix(countdf[,5:dim(countdf)[2]]) # remove cols 1-5 metadata
 
 countdf$chromosome <- gsub(pattern = 'chr', replacement = '', as.character(countdf$chromosome)) #removes the chr letters
 
 # beta version: assume you want CNVs on all samples
 for (i in 1:dim(countmat)[2]) {
     sample_name = colnames(countmat)[i]
+	print(sample_name)
     reference_list = select.reference.set(test.counts = countmat[,i], 
        	reference.count = countmat[,-i],
         bin.length=(countdf$end-countdf$start)/1000,
         n.bins.reduced = 10000)
     reference_set = apply(
-        X = as.matrix(countdf[, reference_list$reference.choice]), 
+        X = as.matrix(countdf[, reference_list$reference.choice, drop = FALSE]), 
         MAR=1, FUN=sum)
     all_exons = new('ExomeDepth', test=countmat[,i], 
         reference=reference_set,
         formula = 'cbind(test,reference) ~ 1')
 
-	#print (countdf)
-	#print(length(countdf$chromosome))
-	#print(length(countdf$start))
-	#print(length(countdf$end))
 
     # default expected.CNV.length is 50000 
     #all_exons <- CallCNVs(x = all_exons, transition.probability = opt$sensitivity,
     #    chromosome = countdf$chromosome, start=countdf$start,
     #    end=countdf$end, name=countdf$names, expected.CNV.length = opt$cnv_length)
 
-    all_exons <- CallCNVs(x = all_exons, transition.probability = 0.03,
+    all_exons <- CallCNVs(x = all_exons, transition.probability = opt$sensitivity,
         chromosome = countdf$chromosome, start=countdf$start,
         end=countdf$end, name=countdf$exon, expected.CNV.length = opt$cnv_length)
 
