@@ -285,7 +285,7 @@ for (i in 1:dim(countmat)[2]) {
     dev.off()   
 
     png(filename = paste(sample_name,"_MSH3.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
-    plot(all_exons, sequence = '5', xlim =c(79950470-22000,80172634+22000), count.threshold = 20, main = 'FH gene', cex.lab = 0.8, with.gene = TRUE)
+    plot(all_exons, sequence = '5', xlim =c(79950470-22000,80172634+22000), count.threshold = 20, main = 'MSH3 gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     png(filename = paste(sample_name,"_SDHA.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
@@ -321,7 +321,7 @@ for (i in 1:dim(countmat)[2]) {
     dev.off()   
 
     png(filename = paste(sample_name,"_PTCH1.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
-    plot(all_exons, sequence = '9', xlim =c(98205261-7000,98271548+7000), count.threshold = 20, main = 'FH gene', cex.lab = 0.8, with.gene = TRUE)
+    plot(all_exons, sequence = '9', xlim =c(98205261-7000,98271548+7000), count.threshold = 20, main = 'PTCH1 gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     png(filename = paste(sample_name,"_GALNT12.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
@@ -430,6 +430,18 @@ for (i in 1:dim(countmat)[2]) {
 
     png(filename = paste(sample_name,"_LZTR1.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
     plot(all_exons, sequence = '22', xlim =c(21336585-1700,21353321+1700), count.threshold = 20, main = 'LZTR1 gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
+    png(filename = paste(sample_name,"_TSC1.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    plot(all_exons, sequence = '9', xlim =c(135759173-1000,135797864+1000), count.threshold = 20, main = 'TSC1 gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
+    png(filename = paste(sample_name,"_TSC2.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    plot(all_exons, sequence = '16', xlim =c(2096980-1000,2139621+1000), count.threshold = 20,amain = 'TSC2 gene', cex.lab = 0.8, with.gene = TRUE)
+    dev.off()   
+
+    png(filename = paste(sample_name,"_VHL.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
+    plot(all_exons, sequence = '3', xlim =c(10173347-1000,10205364+1000), count.threshold = 20, main = 'VHL gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     write.table(all_exons@CNV.calls, file=paste(sample_name,".csv",sep=''), 
