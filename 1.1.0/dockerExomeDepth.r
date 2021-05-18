@@ -479,4 +479,4 @@ duration = format(Sys.time() - start_time)
 
 if(opt$verbose) {
     cat(paste("Completed execution in ",duration,"\n",sep=''),file=stdout())
-
+}
