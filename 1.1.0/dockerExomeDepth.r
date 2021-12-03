@@ -445,7 +445,7 @@ for (i in 1:dim(countmat)[2]) {
     dev.off()   
 
     png(filename = paste(sample_name,"_EXT1.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
-    plot(all_exons, sequence = '8, xlim =c(118811934-5000,119123305+5000), count.threshold = 20, main = 'EXT1 gene', cex.lab = 0.8, with.gene = TRUE)
+    plot(all_exons, sequence = '8', xlim =c(118811934-5000,119123305+5000), count.threshold = 20, main = 'EXT1 gene', cex.lab = 0.8, with.gene = TRUE)
     dev.off()   
 
     png(filename = paste(sample_name,"_EXT2.png", sep=""), width = 8, height = 5, units = 'in', res = 300)
